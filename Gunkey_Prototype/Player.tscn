@@ -42,10 +42,17 @@ scale = Vector2( 2, 2 )
 [node name="Shotgun" parent="Hand" instance=ExtResource( 4 )]
 knockback_force = 400
 user = NodePath("../..")
+min_offset = -20
+max_offset = 20
+reload_time = 1.5
 
 [node name="Pistol" parent="Hand" instance=ExtResource( 3 )]
 visible = false
+knockback_force = 45
 user = NodePath("../..")
+bullet_speed = 660
+min_offset = -20
+max_offset = 20
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

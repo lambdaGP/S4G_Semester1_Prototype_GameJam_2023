@@ -40,7 +40,7 @@ export var max_ammo = 10
 # bullets remaing until next reload
 var ammo_count = 10 setget set_ammo_count
 # the delay in seconds before the gun can shot again after running out of ammo
-export var reload_time = 2
+export var reload_time = 2.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
