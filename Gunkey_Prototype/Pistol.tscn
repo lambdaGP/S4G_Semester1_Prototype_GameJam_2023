@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Gun.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Pistol.png" type="Texture" id=2]
+
+[node name="Pistol" type="Sprite"]
+position = Vector2( 19, -3 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+role = 2
+knockback_force = 42
+bullet_speed = 450
+bullet_damage = 2
+max_range = 700
+bullet_spread_degrees = 0.0
+min_offset = -5
+max_offset = 5
+shot_delay = 0.1
+max_ammo = 100
+
+[node name="SpawnPosition" type="Position2D" parent="."]
+position = Vector2( 20, -4.5 )
