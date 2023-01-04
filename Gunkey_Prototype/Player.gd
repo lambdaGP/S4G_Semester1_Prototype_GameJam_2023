@@ -5,6 +5,7 @@ export var move_speed = 50
 export var sprint_speed = 75
 export var jump_force = 240
 export var break_force = 25
+export (bool) var enable_break_force_in_air = false
 
 var velocity = Vector2.ZERO
 
@@ -38,12 +39,20 @@ func _physics_process(delta):
 		velocity.x = move_speed
 		# $AnimatedSprite.flip_h = false
 	else:
-		if is_on_floor():
-			velocity.x = 0
-		
+		if not enable_break_force_in_air and is_on_floor() and velocity.x != 0:
+			apply_break_force()
+	if enable_break_force_in_air:
+		apply_break_force()
+	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_force
 	
 	velocity.y += gravity_force
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+func apply_break_force():
+	var breaking_speed = break_force if velocity.x < 0 else break_force * -1
+	if abs(breaking_speed) > abs(velocity.x):
+			breaking_speed = -velocity.x
+	velocity.x += breaking_speed

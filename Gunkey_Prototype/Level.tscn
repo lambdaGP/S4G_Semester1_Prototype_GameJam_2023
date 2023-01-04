@@ -7,7 +7,6 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 504, 315 )
-jump_force = 560
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( 131066, 0, 0, 131080, 0, 0, 131090, 0, 0, 262143, 0, 0, 393218, 0, 0, 393231, 0, 0, 655357, 1, 0, 589824, 1, 0, 589827, 1, 0, 589830, 1, 0, 589833, 1, 0, 589836, 1, 0, 589839, 1, 0 )
