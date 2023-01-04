@@ -13,6 +13,7 @@ export (Role) var role = Role.UNEQUIPPED
 export (PackedScene) var projectile_scene = preload("res://Projectile.tscn")
 
 export var knockback_force = 20
+export var gravity_counter_force_modifier = 0.85
 export (NodePath) var user
 
 export var bullets_per_shot = 1
@@ -20,7 +21,6 @@ export var bullets_per_shot = 1
 export var bullet_speed = 300
 # how much damage do the bullets deal?
 export var bullet_damage = 3
-
 
 # how far can the bullets travel?
 export var max_range = 600
@@ -102,7 +102,7 @@ func shoot():
 		get_tree().root.get_child(0).call_deferred("add_child", projectile)
 		ammo_count -= 1
 	if get_node(user) != null and get_node(user).has_method("apply_knockback"):
-		get_node(user).apply_knockback(-Vector2(knockback_force, 0).rotated(global_rotation))
+		get_node(user).apply_knockback(-Vector2(knockback_force, 0).rotated(global_rotation), gravity_counter_force_modifier)
 
 func _on_shoot_timer_timeout():
 	shoot()

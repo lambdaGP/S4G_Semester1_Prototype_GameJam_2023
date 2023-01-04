@@ -41,6 +41,7 @@ scale = Vector2( 2, 2 )
 
 [node name="Shotgun" parent="Hand" instance=ExtResource( 4 )]
 knockback_force = 400
+gravity_counter_force_modifier = 1.0
 user = NodePath("../..")
 min_offset = -20
 max_offset = 20

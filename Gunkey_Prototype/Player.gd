@@ -22,11 +22,12 @@ func _process(delta):
 		$Hand/Shotgun.visible = false
 		$Hand/Pistol.visible = true
 
-func apply_knockback(force):
-	if is_on_floor():
-		return
-	else:
-		velocity += force
+func apply_knockback(force, gravity_counter_force):
+#	if is_on_floor():
+#		return
+#	else:
+		var counter_force =  Vector2(0, -velocity.y * gravity_counter_force if velocity.y > 0 else 0)
+		velocity += force + counter_force
 
 func _physics_process(delta):
 	# var speed = sprint_speed if Input.is_action_pressed("sprint") else move_speed
